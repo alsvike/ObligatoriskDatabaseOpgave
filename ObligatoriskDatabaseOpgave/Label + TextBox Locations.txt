@@ -1,0 +1,21 @@
+Label + TextBox Locations:
+Label 1 = 6, 6
+Label 2 = 6, 35
+Label 3 = 6, 64
+
+TextBox1 = 118, 7
+TextBox2 = 118, 35
+TextBox3 = 118, 64
+
+
+
+Button + TextBox Locations:
+Insert = 6, 297
+Update = 137, 297
+Delete = 270, 297
+Find = 6, 325
+FindTextBox = 92, 325
+Show All = 6, 354
+
+Button Size = 120, 23 (Big Buttons)
+FindButton = 80, 23
