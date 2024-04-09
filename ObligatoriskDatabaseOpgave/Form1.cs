@@ -374,5 +374,17 @@ namespace ObligatoriskDatabaseOpgave
             DisplayDataReservationer();
             ClearDataReservationer();
         }
+
+        private void ResDelete_Click(object sender, EventArgs e)
+        {
+            string query = $"delete Reservationer where ReservationsID='{TextResID.Text.ToString()}'";
+            cmd.CommandText = query;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            dataGridView1.DataSource = query;
+            ClearDataReservationer();
+            conn.Close();
+            DisplayDataReservationer();
+        }
     }
 }

@@ -582,6 +582,7 @@
             ResDelete.TabIndex = 14;
             ResDelete.Text = "Delete";
             ResDelete.UseVisualStyleBackColor = true;
+            ResDelete.Click += ResDelete_Click;
             // 
             // ResUpdate
             // 
