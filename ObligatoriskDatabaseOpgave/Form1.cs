@@ -154,6 +154,47 @@ namespace ObligatoriskDatabaseOpgave
             TextResFind.Clear();
         }
 
+        private void DisplayDataHotelFaciliteter()
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from HotelFaciliteter";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            conn.Close();
+        }
+
+        private void ClearDataHotelFaciliteter()
+        {
+            TextHFFacilitetsID.Clear();
+            TextHFHotelID.Clear();
+        }
+
+        private void DisplayDataFaciliteter()
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Faciliteter";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            conn.Close();
+        }
+
+        private void ClearDataFaciliteter()
+        {
+            TextFacilitetsID.Clear();
+            TextFacilitetsNavn.Clear();
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             CheckConnection();
@@ -385,6 +426,143 @@ namespace ObligatoriskDatabaseOpgave
             ClearDataReservationer();
             conn.Close();
             DisplayDataReservationer();
+        }
+
+        private void ResFind_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Reservationer where ReservationsID='" + TextResFind.Text + "'";
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            TextResID.Text = dt.ToString();
+            TextRKundeID.Text = dt.ToString();
+            TextRVærelsesID.Text = dt.ToString();
+            dataGridView1.DataSource = dt;
+            conn.Close();
+        }
+
+        private void FacilitetsInsert_Click(object sender, EventArgs e)
+        {
+            string query = $"insert into Faciliteter values('{TextFacilitetsID.Text.ToString()}','{TextFacilitetsNavn.Text}')";
+            cmd.CommandText = query;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            ClearDataFaciliteter();
+            conn.Close();
+            DisplayDataFaciliteter();
+        }
+
+        private void ShowAllFaciliteter_Click(object sender, EventArgs e)
+        {
+            DisplayDataFaciliteter();
+        }
+
+        private void UpdateFaciliteter_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE Faciliteter SET FacilitetsNavn='" + TextFacilitetsNavn.Text + "' WHERE FacilitetsID='" + TextFacilitetsID.Text + "'";
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            DisplayDataFaciliteter();
+            ClearDataFaciliteter();
+        }
+
+        private void DeleteFaciliteter_Click(object sender, EventArgs e)
+        {
+            string query = $"delete Faciliteter where FacilitetsID='{TextFacilitetsID.Text.ToString()}'";
+            cmd.CommandText = query;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            dataGridView1.DataSource = query;
+            ClearDataFaciliteter();
+            conn.Close();
+            DisplayDataFaciliteter();
+        }
+
+        private void FindFaciliteter_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Faciliteter where FacilitetsID='" + TextFacilitetsBox.Text + "'";
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            TextFacilitetsID.Text = dt.ToString();
+            TextFacilitetsNavn.Text = dt.ToString();
+            dataGridView1.DataSource = dt;
+            conn.Close();
+        }
+
+        private void ShowAllHF_Click(object sender, EventArgs e)
+        {
+            DisplayDataHotelFaciliteter();
+        }
+
+        private void InsertHF_Click(object sender, EventArgs e)
+        {
+            string query = $"insert into HotelFaciliteter values('{TextHFFacilitetsID.Text.ToString()}','{TextHFHotelID.Text.ToString()}')";
+            cmd.CommandText = query;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            ClearDataHotelFaciliteter();
+            conn.Close();
+            DisplayDataHotelFaciliteter();
+        }
+
+        private void UpdateHF_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE HotelFaciliteter SET FacilitetsID='" + TextHFFacilitetsID.Text + "' WHERE HotelID='" + TextHFHotelID.Text + "'";
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            DisplayDataHotelFaciliteter();
+            ClearDataHotelFaciliteter();
+        }
+
+        private void DeleteHF_Click(object sender, EventArgs e)
+        {
+            string query = $"delete HotelFaciliteter where FacilitetsID='{TextHFFacilitetsID.Text.ToString()}'";
+            cmd.CommandText = query;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            dataGridView1.DataSource = query;
+            ClearDataHotelFaciliteter();
+            conn.Close();
+            DisplayDataHotelFaciliteter();
+        }
+
+        private void FindHF_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from HotelFaciliteter where HotelID='" + HFFindTextbox.Text + "'";
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            TextHFFacilitetsID.Text = dt.ToString();
+            TextHFHotelID.Text = dt.ToString();
+            dataGridView1.DataSource = dt;
+            conn.Close();
         }
     }
 }

@@ -86,25 +86,25 @@
             label11 = new Label();
             label10 = new Label();
             tabPage5 = new TabPage();
-            textBox7 = new TextBox();
-            button12 = new Button();
-            button11 = new Button();
-            button10 = new Button();
-            button9 = new Button();
-            button8 = new Button();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
+            TextFacilitetsBox = new TextBox();
+            FindFaciliteter = new Button();
+            DeleteFaciliteter = new Button();
+            ShowAllFaciliteter = new Button();
+            InsertFaciliteter = new Button();
+            UpdateFaciliteter = new Button();
+            TextFacilitetsNavn = new TextBox();
+            TextFacilitetsID = new TextBox();
             label16 = new Label();
             label15 = new Label();
             tabPage6 = new TabPage();
-            textBox10 = new TextBox();
-            button17 = new Button();
-            button16 = new Button();
-            button15 = new Button();
-            button14 = new Button();
-            button13 = new Button();
-            textBox9 = new TextBox();
-            textBox8 = new TextBox();
+            HFFindTextbox = new TextBox();
+            ShowAllHF = new Button();
+            FindHF = new Button();
+            DeleteHF = new Button();
+            UpdateHF = new Button();
+            InsertHF = new Button();
+            TextHFFacilitetsID = new TextBox();
+            TextHFHotelID = new TextBox();
             label18 = new Label();
             label17 = new Label();
             dataGridView1 = new DataGridView();
@@ -573,6 +573,7 @@
             ResFind.TabIndex = 15;
             ResFind.Text = "Find";
             ResFind.UseVisualStyleBackColor = true;
+            ResFind.Click += ResFind_Click;
             // 
             // ResDelete
             // 
@@ -693,14 +694,14 @@
             // 
             // tabPage5
             // 
-            tabPage5.Controls.Add(textBox7);
-            tabPage5.Controls.Add(button12);
-            tabPage5.Controls.Add(button11);
-            tabPage5.Controls.Add(button10);
-            tabPage5.Controls.Add(button9);
-            tabPage5.Controls.Add(button8);
-            tabPage5.Controls.Add(textBox6);
-            tabPage5.Controls.Add(textBox5);
+            tabPage5.Controls.Add(TextFacilitetsBox);
+            tabPage5.Controls.Add(FindFaciliteter);
+            tabPage5.Controls.Add(DeleteFaciliteter);
+            tabPage5.Controls.Add(ShowAllFaciliteter);
+            tabPage5.Controls.Add(InsertFaciliteter);
+            tabPage5.Controls.Add(UpdateFaciliteter);
+            tabPage5.Controls.Add(TextFacilitetsNavn);
+            tabPage5.Controls.Add(TextFacilitetsID);
             tabPage5.Controls.Add(label16);
             tabPage5.Controls.Add(label15);
             tabPage5.Location = new Point(4, 24);
@@ -709,71 +710,76 @@
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Faciliteter";
             // 
-            // textBox7
+            // TextFacilitetsBox
             // 
-            textBox7.Location = new Point(92, 325);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(298, 23);
-            textBox7.TabIndex = 9;
+            TextFacilitetsBox.Location = new Point(92, 325);
+            TextFacilitetsBox.Name = "TextFacilitetsBox";
+            TextFacilitetsBox.Size = new Size(298, 23);
+            TextFacilitetsBox.TabIndex = 9;
             // 
-            // button12
+            // FindFaciliteter
             // 
-            button12.Location = new Point(6, 325);
-            button12.Name = "button12";
-            button12.Size = new Size(80, 23);
-            button12.TabIndex = 8;
-            button12.Text = "Find";
-            button12.UseVisualStyleBackColor = true;
+            FindFaciliteter.Location = new Point(6, 325);
+            FindFaciliteter.Name = "FindFaciliteter";
+            FindFaciliteter.Size = new Size(80, 23);
+            FindFaciliteter.TabIndex = 8;
+            FindFaciliteter.Text = "Find";
+            FindFaciliteter.UseVisualStyleBackColor = true;
+            FindFaciliteter.Click += FindFaciliteter_Click;
             // 
-            // button11
+            // DeleteFaciliteter
             // 
-            button11.Location = new Point(270, 297);
-            button11.Name = "button11";
-            button11.Size = new Size(120, 23);
-            button11.TabIndex = 7;
-            button11.Text = "Delete";
-            button11.UseVisualStyleBackColor = true;
+            DeleteFaciliteter.Location = new Point(270, 297);
+            DeleteFaciliteter.Name = "DeleteFaciliteter";
+            DeleteFaciliteter.Size = new Size(120, 23);
+            DeleteFaciliteter.TabIndex = 7;
+            DeleteFaciliteter.Text = "Delete";
+            DeleteFaciliteter.UseVisualStyleBackColor = true;
+            DeleteFaciliteter.Click += DeleteFaciliteter_Click;
             // 
-            // button10
+            // ShowAllFaciliteter
             // 
-            button10.Location = new Point(6, 354);
-            button10.Name = "button10";
-            button10.Size = new Size(384, 23);
-            button10.TabIndex = 6;
-            button10.Text = "Show All";
-            button10.UseVisualStyleBackColor = true;
+            ShowAllFaciliteter.Location = new Point(6, 354);
+            ShowAllFaciliteter.Name = "ShowAllFaciliteter";
+            ShowAllFaciliteter.Size = new Size(384, 23);
+            ShowAllFaciliteter.TabIndex = 6;
+            ShowAllFaciliteter.Text = "Show All";
+            ShowAllFaciliteter.UseVisualStyleBackColor = true;
+            ShowAllFaciliteter.Click += ShowAllFaciliteter_Click;
             // 
-            // button9
+            // InsertFaciliteter
             // 
-            button9.Location = new Point(6, 297);
-            button9.Name = "button9";
-            button9.Size = new Size(120, 23);
-            button9.TabIndex = 5;
-            button9.Text = "Insert";
-            button9.UseVisualStyleBackColor = true;
+            InsertFaciliteter.Location = new Point(6, 297);
+            InsertFaciliteter.Name = "InsertFaciliteter";
+            InsertFaciliteter.Size = new Size(120, 23);
+            InsertFaciliteter.TabIndex = 5;
+            InsertFaciliteter.Text = "Insert";
+            InsertFaciliteter.UseVisualStyleBackColor = true;
+            InsertFaciliteter.Click += FacilitetsInsert_Click;
             // 
-            // button8
+            // UpdateFaciliteter
             // 
-            button8.Location = new Point(137, 297);
-            button8.Name = "button8";
-            button8.Size = new Size(120, 23);
-            button8.TabIndex = 4;
-            button8.Text = "Update";
-            button8.UseVisualStyleBackColor = true;
+            UpdateFaciliteter.Location = new Point(137, 297);
+            UpdateFaciliteter.Name = "UpdateFaciliteter";
+            UpdateFaciliteter.Size = new Size(120, 23);
+            UpdateFaciliteter.TabIndex = 4;
+            UpdateFaciliteter.Text = "Update";
+            UpdateFaciliteter.UseVisualStyleBackColor = true;
+            UpdateFaciliteter.Click += UpdateFaciliteter_Click;
             // 
-            // textBox6
+            // TextFacilitetsNavn
             // 
-            textBox6.Location = new Point(118, 35);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(272, 23);
-            textBox6.TabIndex = 3;
+            TextFacilitetsNavn.Location = new Point(118, 35);
+            TextFacilitetsNavn.Name = "TextFacilitetsNavn";
+            TextFacilitetsNavn.Size = new Size(272, 23);
+            TextFacilitetsNavn.TabIndex = 3;
             // 
-            // textBox5
+            // TextFacilitetsID
             // 
-            textBox5.Location = new Point(118, 7);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(272, 23);
-            textBox5.TabIndex = 2;
+            TextFacilitetsID.Location = new Point(118, 7);
+            TextFacilitetsID.Name = "TextFacilitetsID";
+            TextFacilitetsID.Size = new Size(272, 23);
+            TextFacilitetsID.TabIndex = 2;
             // 
             // label16
             // 
@@ -797,14 +803,14 @@
             // 
             // tabPage6
             // 
-            tabPage6.Controls.Add(textBox10);
-            tabPage6.Controls.Add(button17);
-            tabPage6.Controls.Add(button16);
-            tabPage6.Controls.Add(button15);
-            tabPage6.Controls.Add(button14);
-            tabPage6.Controls.Add(button13);
-            tabPage6.Controls.Add(textBox9);
-            tabPage6.Controls.Add(textBox8);
+            tabPage6.Controls.Add(HFFindTextbox);
+            tabPage6.Controls.Add(ShowAllHF);
+            tabPage6.Controls.Add(FindHF);
+            tabPage6.Controls.Add(DeleteHF);
+            tabPage6.Controls.Add(UpdateHF);
+            tabPage6.Controls.Add(InsertHF);
+            tabPage6.Controls.Add(TextHFFacilitetsID);
+            tabPage6.Controls.Add(TextHFHotelID);
             tabPage6.Controls.Add(label18);
             tabPage6.Controls.Add(label17);
             tabPage6.Location = new Point(4, 24);
@@ -813,71 +819,76 @@
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Hotel Faciliteter";
             // 
-            // textBox10
+            // HFFindTextbox
             // 
-            textBox10.Location = new Point(92, 325);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(298, 23);
-            textBox10.TabIndex = 9;
+            HFFindTextbox.Location = new Point(92, 325);
+            HFFindTextbox.Name = "HFFindTextbox";
+            HFFindTextbox.Size = new Size(298, 23);
+            HFFindTextbox.TabIndex = 9;
             // 
-            // button17
+            // ShowAllHF
             // 
-            button17.Location = new Point(6, 354);
-            button17.Name = "button17";
-            button17.Size = new Size(384, 23);
-            button17.TabIndex = 8;
-            button17.Text = "button17";
-            button17.UseVisualStyleBackColor = true;
+            ShowAllHF.Location = new Point(6, 354);
+            ShowAllHF.Name = "ShowAllHF";
+            ShowAllHF.Size = new Size(384, 23);
+            ShowAllHF.TabIndex = 8;
+            ShowAllHF.Text = "Show All";
+            ShowAllHF.UseVisualStyleBackColor = true;
+            ShowAllHF.Click += ShowAllHF_Click;
             // 
-            // button16
+            // FindHF
             // 
-            button16.Location = new Point(6, 325);
-            button16.Name = "button16";
-            button16.Size = new Size(80, 23);
-            button16.TabIndex = 7;
-            button16.Text = "button16";
-            button16.UseVisualStyleBackColor = true;
+            FindHF.Location = new Point(6, 325);
+            FindHF.Name = "FindHF";
+            FindHF.Size = new Size(80, 23);
+            FindHF.TabIndex = 7;
+            FindHF.Text = "Find";
+            FindHF.UseVisualStyleBackColor = true;
+            FindHF.Click += FindHF_Click;
             // 
-            // button15
+            // DeleteHF
             // 
-            button15.Location = new Point(270, 297);
-            button15.Name = "button15";
-            button15.Size = new Size(120, 23);
-            button15.TabIndex = 6;
-            button15.Text = "button15";
-            button15.UseVisualStyleBackColor = true;
+            DeleteHF.Location = new Point(270, 297);
+            DeleteHF.Name = "DeleteHF";
+            DeleteHF.Size = new Size(120, 23);
+            DeleteHF.TabIndex = 6;
+            DeleteHF.Text = "Delete";
+            DeleteHF.UseVisualStyleBackColor = true;
+            DeleteHF.Click += DeleteHF_Click;
             // 
-            // button14
+            // UpdateHF
             // 
-            button14.Location = new Point(137, 297);
-            button14.Name = "button14";
-            button14.Size = new Size(120, 23);
-            button14.TabIndex = 5;
-            button14.Text = "button14";
-            button14.UseVisualStyleBackColor = true;
+            UpdateHF.Location = new Point(137, 297);
+            UpdateHF.Name = "UpdateHF";
+            UpdateHF.Size = new Size(120, 23);
+            UpdateHF.TabIndex = 5;
+            UpdateHF.Text = "Update";
+            UpdateHF.UseVisualStyleBackColor = true;
+            UpdateHF.Click += UpdateHF_Click;
             // 
-            // button13
+            // InsertHF
             // 
-            button13.Location = new Point(6, 297);
-            button13.Name = "button13";
-            button13.Size = new Size(120, 23);
-            button13.TabIndex = 4;
-            button13.Text = "button13";
-            button13.UseVisualStyleBackColor = true;
+            InsertHF.Location = new Point(6, 297);
+            InsertHF.Name = "InsertHF";
+            InsertHF.Size = new Size(120, 23);
+            InsertHF.TabIndex = 4;
+            InsertHF.Text = "Insert";
+            InsertHF.UseVisualStyleBackColor = true;
+            InsertHF.Click += InsertHF_Click;
             // 
-            // textBox9
+            // TextHFFacilitetsID
             // 
-            textBox9.Location = new Point(118, 35);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(272, 23);
-            textBox9.TabIndex = 3;
+            TextHFFacilitetsID.Location = new Point(118, 35);
+            TextHFFacilitetsID.Name = "TextHFFacilitetsID";
+            TextHFFacilitetsID.Size = new Size(272, 23);
+            TextHFFacilitetsID.TabIndex = 3;
             // 
-            // textBox8
+            // TextHFHotelID
             // 
-            textBox8.Location = new Point(118, 7);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(272, 23);
-            textBox8.TabIndex = 2;
+            TextHFHotelID.Location = new Point(118, 7);
+            TextHFHotelID.Name = "TextHFHotelID";
+            TextHFHotelID.Size = new Size(272, 23);
+            TextHFHotelID.TabIndex = 2;
             // 
             // label18
             // 
@@ -911,7 +922,7 @@
             // ViewTables
             // 
             ViewTables.FlatStyle = FlatStyle.Flat;
-            ViewTables.Location = new Point(609, 402);
+            ViewTables.Location = new Point(609, 398);
             ViewTables.Name = "ViewTables";
             ViewTables.Size = new Size(80, 23);
             ViewTables.TabIndex = 2;
@@ -922,7 +933,7 @@
             // button2
             // 
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(770, 402);
+            button2.Location = new Point(770, 398);
             button2.Name = "button2";
             button2.Size = new Size(80, 23);
             button2.TabIndex = 3;
@@ -933,7 +944,7 @@
             // button3
             // 
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(422, 402);
+            button3.Location = new Point(422, 398);
             button3.Name = "button3";
             button3.Size = new Size(116, 23);
             button3.TabIndex = 4;
@@ -945,15 +956,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 444);
+            ClientSize = new Size(862, 426);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(ViewTables);
             Controls.Add(dataGridView1);
             Controls.Add(tabControl1);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
-            Text = "Database Applikation - Hoteller";
+            Text = "Database Applikation";
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
@@ -1037,24 +1048,24 @@
         private Button ResUpdate;
         private Button ResInsert;
         private DateTimePicker TjekUdDato;
-        private TextBox textBox7;
-        private Button button12;
-        private Button button11;
-        private Button button10;
-        private Button button9;
-        private Button button8;
-        private TextBox textBox6;
-        private TextBox textBox5;
+        private TextBox TextFacilitetsBox;
+        private Button FindFaciliteter;
+        private Button DeleteFaciliteter;
+        private Button ShowAllFaciliteter;
+        private Button InsertFaciliteter;
+        private Button UpdateFaciliteter;
+        private TextBox TextFacilitetsNavn;
+        private TextBox TextFacilitetsID;
         private Label label16;
         private Label label15;
-        private TextBox textBox10;
-        private Button button17;
-        private Button button16;
-        private Button button15;
-        private Button button14;
-        private Button button13;
-        private TextBox textBox9;
-        private TextBox textBox8;
+        private TextBox HFFindTextbox;
+        private Button ShowAllHF;
+        private Button FindHF;
+        private Button DeleteHF;
+        private Button UpdateHF;
+        private Button InsertHF;
+        private TextBox TextHFFacilitetsID;
+        private TextBox TextHFHotelID;
         private Label label18;
         private Label label17;
     }
