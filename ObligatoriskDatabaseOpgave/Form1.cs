@@ -23,34 +23,25 @@ namespace ObligatoriskDatabaseOpgave
 
         private void CheckConnection()
         {
-            //Det her var bare en for sjov ting hvor jeg begav mig ud i exceptions
             try
             {
-                // Attempting to establish a connection to the database...
-
-                // Opening the connection...
                 conn.Open();
 
-                // Connection status:
                 if (conn.State == ConnectionState.Open)
                 {
-                    // Connection successful!
                     MessageBox.Show("Connection to the database was successful.", "Connection Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    // Connection failed!
                     MessageBox.Show("Failed to establish a connection to the database.", "Connection Status", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                // Connection failed, displaying error message...
                 MessageBox.Show("An error occurred while trying to connect to the database: " + ex.Message, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                // Closing the connection...
                 conn.Close();
             }
         }
@@ -549,6 +540,7 @@ namespace ObligatoriskDatabaseOpgave
 
         private void FindHF_Click(object sender, EventArgs e)
         {
+            
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
